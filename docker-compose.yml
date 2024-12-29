@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: myuser # Replace 'myuser' with your preferred username
+      POSTGRES_PASSWORD: mypassword # Replace 'mypassword' with your preferred password
+      POSTGRES_DB: mydatabase # Replace 'mydatabase' with your preferred database name
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
